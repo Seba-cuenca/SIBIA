@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>SIBIA - Inteligencia Artificial para Empresas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo SIBIA" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            <div class="contenido-central">
+                <h1>Bienvenido a SIBIA</h1>
+                <p>Automatización inteligente para tu empresa</p>
+            </div>
+        </section>
+        <section id="servicios">
+            <h2>Servicios</h2>
+            <p>Ofrecemos soluciones con inteligencia artificial adaptadas a tu negocio.</p>
+        </section>
+        <section id="nosotros">
+            <h2>Sobre Nosotros</h2>
+            <img src="ingenieros.jpg" alt="Ingenieros trabajando" style="max-width: 100%; height: auto;">
+            <p>Somos un equipo de expertos en IA y automatización.</p>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form>
+                <label for="mensaje">Tu mensaje:</label><br>
+                <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br>
+                <input type="submit" value="Enviar">
+            </form>
+            <p>Tu consulta será respondida por nuestro equipo. ¡Gracias por comunicarte!</p>
+        </section>
+    </main>
+    <div class="chatbot">
+        <img src="chatbot.png" alt="Chatbot SIBIA" style="width: 100px;">
+    </div>
+
+    <script>
+      const fondos = ['fondo1.jpg', 'fondo2.jpg'];
+      let actual = 0;
+
+      function cambiarFondo() {
+        document.body.style.backgroundImage = `url('${fondos[actual]}')`;
+        actual = (actual + 1) % fondos.length;
+      }
+
+      document.body.style.backgroundImage = `url('${fondos[0]}')`;
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundPosition = 'center';
+
+      setInterval(cambiarFondo, 5000);
+    </script>
+</body>
+</html>
