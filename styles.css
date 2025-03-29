@@ -1,158 +1,232 @@
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Fuente recomendada */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    background-color: #000;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: background-image 1s ease-in-out;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #0E0E0E; /* Fondo oscuro */
+  color: #FFFFFF;           /* Texto claro */
 }
 
+/* Encabezado */
 header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #151515;
+  padding: 1rem 2rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-    height: 60px;
-    width: auto;
+  width: 40px;
+  height: auto;
+  margin-right: 0.5rem;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
+/* Barra de navegación */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
 
-main {
-    padding-top: 120px;
-    padding-bottom: 50px;
+.navbar a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
 }
 
-section {
-    padding: 80px 20px;
-    text-align: center;
-    max-width: 1000px;
-    margin: auto;
+.navbar a:hover {
+  color: #00AEEF; /* Color de acento al pasar el cursor */
 }
 
-.contenido-central {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 60px 20px;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 0 auto;
+/* Sección Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 2rem;
+  background: #111111;
 }
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+  margin-right: 2rem;
 }
 
-h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.hero-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+.hero-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-form {
-    margin-top: 20px;
+.hero-logos {
+  margin-bottom: 1rem;
 }
 
-textarea {
-    width: 90%;
-    max-width: 500px;
-    font-size: 1rem;
-    padding: 10px;
+.company-logos img {
+  width: 80px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
-input[type="submit"] {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
+.hero-contact p {
+  margin: 0.2rem 0;
+  font-weight: 300;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-    border-radius: 8px;
+/* Imagen en la sección hero */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 280px;
+  margin-top: 1rem;
 }
 
-.chatbot {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 10;
+.hero-image img {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 6px;
 }
 
-.chatbot img {
-    width: 100px;
-    height: auto;
+/* Sección Servicios */
+.services {
+  padding: 2rem;
+  background-color: #181818;
+  text-align: center;
 }
 
-/* Media Queries para pantallas más chicas */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.services h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
 
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
+.services p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #CCCCCC;
+}
 
-    .logo {
-        height: 50px;
-        margin-bottom: 10px;
-    }
+.service-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
 
-    .chatbot img {
-        width: 70px;
-    }
+.service-item {
+  background-color: #222222;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 320px;
+  flex: 1 1 300px;
+}
 
-    h1 {
-        font-size: 2rem;
-    }
+.service-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #00AEEF;
+}
 
-    h2 {
-        font-size: 1.5rem;
-    }
+.service-item ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
 
-    p, textarea, input[type="submit"] {
-        font-size: 1rem;
-    }
+.service-item li {
+  margin-bottom: 0.5rem;
+}
+
+/* Sección Nosotros */
+.about {
+  padding: 2rem;
+  background-color: #111111;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+  color: #CCCCCC;
+}
+
+.about-image img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Chatbot */
+.chatbot-section {
+  background-color: #181818;
+  padding: 2rem;
+  text-align: center;
+}
+
+.chatbot-button {
+  background-color: #00AEEF;
+  color: #FFFFFF;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chatbot-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.chatbot-button:hover {
+  background-color: #008FBF;
+}
+
+/* Footer */
+.footer {
+  background-color: #151515;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-content a {
+  color: #00AEEF;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
 }
