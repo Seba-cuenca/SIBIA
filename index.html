@@ -2,66 +2,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>SIBIA - Inteligencia Artificial para Empresas</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SIBIA - Automatización Inteligente</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Fuentes (opcional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo SIBIA" class="logo">
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="inicio">
-            <div class="contenido-central">
-                <h1>Bienvenido a SIBIA</h1>
-                <p>Automatización inteligente para tu empresa</p>
-            </div>
-        </section>
-        <section id="servicios">
-            <h2>Servicios</h2>
-            <p>Ofrecemos soluciones con inteligencia artificial adaptadas a tu negocio.</p>
-        </section>
-        <section id="nosotros">
-            <h2>Sobre Nosotros</h2>
-            <img src="ingenieros.jpg" alt="Ingenieros trabajando" style="max-width: 100%; height: auto;">
-            <p>Somos un equipo de expertos en IA y automatización.</p>
-        </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <form>
-                <label for="mensaje">Tu mensaje:</label><br>
-                <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br>
-                <input type="submit" value="Enviar">
-            </form>
-            <p>Tu consulta será respondida por nuestro equipo. ¡Gracias por comunicarte!</p>
-        </section>
-    </main>
-    <div class="chatbot">
-        <img src="chatbot.png" alt="Chatbot SIBIA" style="width: 100px;">
+  <!-- Encabezado / Barra de navegación -->
+  <header>
+    <div class="logo-container">
+      <!-- Logo de SIBIA (opcional) -->
+      <img src="img/logo-sibia.png" alt="Logo de SIBIA" class="logo" />
+      <h1 class="brand-name">SIBIA</h1>
     </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <script>
-      const fondos = ['fondo1.jpg', 'fondo2.jpg'];
-      let actual = 0;
+  <!-- Sección Hero / Inicio -->
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h2>Automatización inteligente para tu empresa</h2>
+      <p>Brindamos soluciones innovadoras en IA y automatización industrial.</p>
+      <div class="hero-logos">
+        <span>Empresas con las que trabajamos:</span>
+        <div class="company-logos">
+          <img src="img/logo-ypf.png" alt="YPF" />
+          <img src="img/logo-arcor.png" alt="Arcor" />
+          <img src="img/logo-mercadolibre.png" alt="Mercado Libre" />
+          <img src="img/logo-globant.png" alt="Globant" />
+        </div>
+      </div>
+      <div class="hero-contact">
+        <p><strong>+54 9 11 1234-5678</strong></p>
+        <p><a href="mailto:info@sibia.com">info@sibia.com</a></p>
+      </div>
+    </div>
+    <!-- Imagen de la persona (opcional) -->
+    <div class="hero-image">
+      <img src="img/persona.png" alt="Persona representativa"/>
+    </div>
+  </section>
 
-      function cambiarFondo() {
-        document.body.style.backgroundImage = `url('${fondos[actual]}')`;
-        actual = (actual + 1) % fondos.length;
-      }
+  <!-- Sección Servicios -->
+  <section id="servicios" class="services">
+    <h2>Nuestros Servicios</h2>
+    <p>Ofrecemos soluciones de automatización inteligente para potenciar tu empresa.</p>
 
-      document.body.style.backgroundImage = `url('${fondos[0]}')`;
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundPosition = 'center';
+    <div class="service-columns">
+      <!-- Columna 1 -->
+      <div class="service-item">
+        <h3>Inteligencia Artificial <br> y Automatización Digital</h3>
+        <ul>
+          <li>Automatización de procesos industriales</li>
+          <li>Análisis predictivo de datos</li>
+          <li>Desarrollo de asistentes inteligentes</li>
+          <li>Integración de plataformas y software</li>
+          <li>Monitoreo y control en tiempo real</li>
+          <li>Capacitación en IA</li>
+        </ul>
+      </div>
+      <!-- Columna 2 -->
+      <div class="service-item">
+        <h3>Automatización Industrial <br> y Tablerismo</h3>
+        <ul>
+          <li>Programación de PLC</li>
+          <li>Sistemas SCADA</li>
+          <li>Proyectos eléctricos industriales</li>
+          <li>Tablerismo y montaje de gabinetes</li>
+          <li>Documentación técnica y planos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-      setInterval(cambiarFondo, 5000);
-    </script>
+  <!-- Sección Nosotros -->
+  <section id="nosotros" class="about">
+    <h2>Sobre Nosotros</h2>
+    <p>
+      Somos una empresa dedicada a la implementación de tecnologías de inteligencia artificial 
+      y automatización industrial. Ayudamos a nuestros clientes a mejorar la eficiencia y 
+      competitividad de sus procesos, integrando soluciones de vanguardia.
+    </p>
+
+    <!-- Ejemplo de imagen o foto de equipo de trabajo -->
+    <div class="about-image">
+      <img src="img/equipo-trabajo.png" alt="Equipo de trabajo (opcional)" />
+    </div>
+  </section>
+
+  <!-- Sección de Chatbot (opcional) -->
+  <section class="chatbot-section">
+    <div class="chatbot-container">
+      <button class="chatbot-button">
+        <img src="img/robot-icon.png" alt="Chatbot" />
+        <span>Chatbot</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Sección de Contacto / Footer -->
+  <footer id="contacto" class="footer">
+    <div class="footer-content">
+      <h3>Contacto</h3>
+      <p>Para más información sobre nuestros servicios o para solicitar una cotización, contáctanos:</p>
+      <p><strong>Tel:</strong> +54 9 11 1234-5678</p>
+      <p><strong>Email:</strong> <a href="mailto:info@sibia.com">info@sibia.com</a></p>
+      <p>SIBIA © 2025 - Todos los derechos reservados</p>
+    </div>
+  </footer>
 </body>
 </html>
