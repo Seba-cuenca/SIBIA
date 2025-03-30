@@ -3,11 +3,11 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  /* Fondo animado con un gradiente vibrante para mayor contraste */
+  /* Gradiente claro y vibrante */
   background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
   background-size: 600% 600%;
   animation: gradientAnimation 15s ease infinite;
-  color: #FFFFFF;           /* Texto claro */
+  color: #FFFFFF;
 }
 
 @keyframes gradientAnimation {
@@ -21,7 +21,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(21, 21, 21, 0.7); /* Menos opaco para ver el fondo */
+  /* Semitransparente para ver el fondo */
+  background-color: rgba(21, 21, 21, 0.6);
   padding: 1rem 2rem;
 }
 
@@ -67,7 +68,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   padding: 2rem;
-  background: rgba(17, 17, 17, 0.5); /* Menos opaco */
+  background: none; /* Fondo transparente */
 }
 
 .hero-text {
@@ -119,7 +120,7 @@ header {
 /* Sección Servicios */
 .services {
   padding: 2rem;
-  background-color: rgba(24, 24, 24, 0.5); /* Menos opaco */
+  background: rgba(0, 0, 0, 0.3); /* Ejemplo semitransparente */
   text-align: center;
 }
 
@@ -142,7 +143,7 @@ header {
 }
 
 .service-item {
-  background-color: rgba(34, 34, 34, 0.7); /* Reducí la opacidad */
+  background-color: rgba(34, 34, 34, 0.5);
   padding: 1.5rem;
   border-radius: 8px;
   max-width: 320px;
@@ -168,7 +169,7 @@ header {
 /* Sección Nosotros */
 .about {
   padding: 2rem;
-  background-color: rgba(17, 17, 17, 0.5); /* Menos opaco */
+  background: rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -190,38 +191,9 @@ header {
   border-radius: 8px;
 }
 
-/* Chatbot */
-.chatbot-section {
-  background-color: rgba(24, 24, 24, 0.5);
-  padding: 2rem;
-  text-align: center;
-}
-
-.chatbot-button {
-  background-color: #00AEEF;
-  color: #FFFFFF;
-  border: none;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 50px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.chatbot-button img {
-  width: 24px;
-  height: 24px;
-}
-
-.chatbot-button:hover {
-  background-color: #008FBF;
-}
-
 /* Footer */
 .footer {
-  background-color: rgba(21, 21, 21, 0.7);
+  background-color: rgba(21, 21, 21, 0.6);
   padding: 2rem;
   text-align: center;
 }
@@ -239,4 +211,3 @@ header {
 .footer-content a:hover {
   text-decoration: underline;
 }
-
