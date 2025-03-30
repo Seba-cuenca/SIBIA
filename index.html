@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css?v=2.0"/>
+  <link rel="stylesheet" href="styles.css?v=3.0"/>
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
@@ -15,9 +15,12 @@
   </style>
 </head>
 <body>
-  <!-- Contenedor de partículas con gradiente de fondo -->
-  <div id="particles-js"></div>
-  
+  <!-- Video de fondo -->
+  <video autoplay muted loop id="video-background">
+    <source src="174086-850404739_small.mp4" type="video/mp4">
+    Tu navegador no soporta videos.
+  </video>
+
   <!-- Encabezado / Barra de navegación -->
   <header>
     <div class="logo-container">
@@ -111,7 +114,7 @@
   <section id="contacto" class="footer">
     <div class="footer-content">
       <h3>Contacto</h3>
-      <p>Para más información sobre nuestros servicios o para solicitar una cotización, contáctanos:</p>
+      <p>Para más información o cotizaciones, contáctanos:</p>
       <p><strong>Tel:</strong> +54 9 11 5175 9683</p>
       <p><strong>Email:</strong> <a href="mailto:info@sibia.com">info@sibia.com</a></p>
       <p>SIBIA © 2025 - Todos los derechos reservados</p>
@@ -135,64 +138,6 @@
           this.classList.add('active');
         });
       });
-    });
-  </script>
-  
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": {
-          "value": 100,
-          "density": {
-            "enable": true,
-            "value_area": 800
-          }
-        },
-        "color": { "value": "#ffffff" },
-        "shape": { "type": "circle" },
-        "opacity": {
-          "value": 0.5,
-          "random": true
-        },
-        "size": {
-          "value": 3,
-          "random": true
-        },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#ffffff",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out",
-          "bounce": false
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "grab" },
-          "onclick": { "enable": true, "mode": "push" },
-          "resize": true
-        },
-        "modes": {
-          "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
-          "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
-          "repulse": { "distance": 200, "duration": 0.4 },
-          "push": { "particles_nb": 4 },
-          "remove": { "particles_nb": 2 }
-        }
-      },
-      "retina_detect": true
     });
   </script>
 </body>
