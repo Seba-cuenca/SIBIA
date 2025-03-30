@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css?v=1.0"/>
+  <link rel="stylesheet" href="styles.css?v=2.0"/>
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
@@ -15,7 +15,7 @@
   </style>
 </head>
 <body>
-  <!-- Fondo de partículas (fondo futurista) -->
+  <!-- Contenedor de partículas con gradiente de fondo -->
   <div id="particles-js"></div>
   
   <!-- Encabezado / Barra de navegación -->
@@ -185,4 +185,15 @@
           "resize": true
         },
         "modes": {
-          "grab": { "
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
+          "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+          "repulse": { "distance": 200, "duration": 0.4 },
+          "push": { "particles_nb": 4 },
+          "remove": { "particles_nb": 2 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
+</html>
