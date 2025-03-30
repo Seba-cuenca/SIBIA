@@ -4,21 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <!-- Fuentes (opcional) -->
+  <link rel="stylesheet" href="styles.css?v=1.0"/>
+  <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
   <style>
-    /* Opcional: Si querés que el navegador sepa que por defecto solo se muestra la sección activa */
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
+    /* Por defecto, ocultar todas las secciones y mostrar solo la activa */
+    section { display: none; }
+    section.active { display: block; }
   </style>
 </head>
 <body>
+  <!-- Fondo de partículas (fondo futurista) -->
+  <div id="particles-js"></div>
+  
   <!-- Encabezado / Barra de navegación -->
   <header>
     <div class="logo-container">
@@ -34,8 +33,8 @@
       </ul>
     </nav>
   </header>
-
-  <!-- Secciones: Solo se mostrará la que tenga la clase "active" -->
+  
+  <!-- Sección Inicio -->
   <section id="inicio" class="hero active">
     <div class="hero-text">
       <h2>Automatización inteligente para tu empresa</h2>
@@ -58,12 +57,17 @@
       <img src="img/persona.png" alt="Persona representativa"/>
     </div>
   </section>
-
+  
+  <!-- Sección Servicios -->
   <section id="servicios" class="services">
     <h2>Nuestros Servicios</h2>
     <p>Ofrecemos soluciones de automatización inteligente para potenciar tu empresa.</p>
     <div class="service-columns">
       <div class="service-item">
+        <!-- Icono para IA y Automatización Digital -->
+        <div class="service-icon">
+          <img src="img/icono-de-robot.png" alt="Icono IA" />
+        </div>
         <h3>Inteligencia Artificial <br> y Automatización Digital</h3>
         <ul>
           <li>Automatización de procesos industriales</li>
@@ -74,6 +78,10 @@
         </ul>
       </div>
       <div class="service-item">
+        <!-- Icono para Automatización Industrial y Tablerismo -->
+        <div class="service-icon">
+          <img src="img/icono-de-robot.png" alt="Icono Industrial" />
+        </div>
         <h3>Automatización Industrial <br> y Tablerismo</h3>
         <ul>
           <li>Programación de PLC</li>
@@ -85,7 +93,8 @@
       </div>
     </div>
   </section>
-
+  
+  <!-- Sección Nosotros -->
   <section id="nosotros" class="about">
     <h2>Sobre Nosotros</h2>
     <p>
@@ -94,10 +103,11 @@
       competitividad de sus procesos, integrando soluciones de vanguardia.
     </p>
     <div class="about-image">
-      <img src="img/equipo-trabajo.png" alt="Equipo de trabajo (opcional)" />
+      <img src="img/equipo-trabajo.png" alt="Equipo de trabajo" />
     </div>
   </section>
-
+  
+  <!-- Sección Contacto / Footer -->
   <section id="contacto" class="footer">
     <div class="footer-content">
       <h3>Contacto</h3>
@@ -107,31 +117,72 @@
       <p>SIBIA © 2025 - Todos los derechos reservados</p>
     </div>
   </section>
-
+  
   <!-- Script para alternar entre secciones -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const navLinks = document.querySelectorAll('.navbar a');
       const sections = document.querySelectorAll('section');
-
+      
       navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
           e.preventDefault();
-          // Ocultar todas las secciones
           sections.forEach(sec => sec.classList.remove('active'));
-          // Remover clase "active" de todos los enlaces
           navLinks.forEach(lnk => lnk.classList.remove('active'));
-          // Obtener el id de la sección destino (sin el #)
           const targetId = this.getAttribute('href').substring(1);
           const targetSection = document.getElementById(targetId);
-          // Mostrar la sección destino y marcar el enlace como activo
-          if (targetSection) {
-            targetSection.classList.add('active');
-          }
+          if (targetSection) { targetSection.classList.add('active'); }
           this.classList.add('active');
         });
       });
     });
   </script>
-</body>
-</html>
+  
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 100,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": {
+          "value": 0.5,
+          "random": true
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "grab": { "
