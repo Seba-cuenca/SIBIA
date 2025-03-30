@@ -3,17 +3,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  /* Gradiente claro y vibrante */
-  background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
-  background-size: 600% 600%;
-  animation: gradientAnimation 15s ease infinite;
+  background: #0A0A0A; /* Fondo base oscuro para contrastar con las partículas */
   color: #FFFFFF;
 }
 
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Contenedor de partículas */
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* Encabezado */
@@ -21,7 +22,6 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Semitransparente para ver el fondo */
   background-color: rgba(21, 21, 21, 0.6);
   padding: 1rem 2rem;
 }
@@ -42,7 +42,7 @@ header {
   font-weight: 700;
 }
 
-/* Barra de navegación */
+/* Navegación */
 .navbar ul {
   list-style: none;
   display: flex;
@@ -58,8 +58,21 @@ header {
   transition: color 0.3s ease;
 }
 
-.navbar a:hover {
+.navbar a:hover,
+.navbar a.active {
   color: #00AEEF;
+}
+
+/* Secciones generales */
+.hero,
+.services,
+.about,
+.footer {
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);  /* Fondo muy transparente */
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 1200px;
 }
 
 /* Sección Hero */
@@ -67,8 +80,6 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 2rem;
-  background: none; /* Fondo transparente */
 }
 
 .hero-text {
@@ -102,7 +113,6 @@ header {
   font-weight: 300;
 }
 
-/* Imagen en la sección hero */
 .hero-image {
   flex: 1;
   display: flex;
@@ -119,8 +129,6 @@ header {
 
 /* Sección Servicios */
 .services {
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.3); /* Ejemplo semitransparente */
   text-align: center;
 }
 
@@ -148,28 +156,22 @@ header {
   border-radius: 8px;
   max-width: 320px;
   flex: 1 1 300px;
-}
-
-.service-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #00AEEF;
-}
-
-.service-item ul {
-  list-style: none;
-  padding: 0;
   text-align: left;
 }
 
-.service-item li {
-  margin-bottom: 0.5rem;
+/* Icono de servicio */
+.service-icon {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.service-icon img {
+  width: 50px;
+  height: auto;
 }
 
 /* Sección Nosotros */
 .about {
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
@@ -194,7 +196,6 @@ header {
 /* Footer */
 .footer {
   background-color: rgba(21, 21, 21, 0.6);
-  padding: 2rem;
   text-align: center;
 }
 
