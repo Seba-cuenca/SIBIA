@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  /* Fondo animado con gradiente */
-  background: linear-gradient(45deg, #0E0E0E, #151515, #0E0E0E);
+  /* Fondo animado con un gradiente vibrante para mayor contraste */
+  background: linear-gradient(45deg, #1a2a6c, #b21f1f, #fdbb2d);
   background-size: 600% 600%;
   animation: gradientAnimation 15s ease infinite;
   color: #FFFFFF;           /* Texto claro */
@@ -21,7 +21,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(21, 21, 21, 0.9); /* Semitransparente para ver el fondo */
+  background-color: rgba(21, 21, 21, 0.7); /* Menos opaco para ver el fondo */
   padding: 1rem 2rem;
 }
 
@@ -58,7 +58,7 @@ header {
 }
 
 .navbar a:hover {
-  color: #00AEEF; /* Color de acento al pasar el cursor */
+  color: #00AEEF;
 }
 
 /* Sección Hero */
@@ -67,8 +67,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   padding: 2rem;
-  /* Fondo semitransparente para dejar ver el gradiente */
-  background: rgba(17, 17, 17, 0.85);
+  background: rgba(17, 17, 17, 0.5); /* Menos opaco */
 }
 
 .hero-text {
@@ -120,7 +119,7 @@ header {
 /* Sección Servicios */
 .services {
   padding: 2rem;
-  background-color: rgba(24, 24, 24, 0.85);
+  background-color: rgba(24, 24, 24, 0.5); /* Menos opaco */
   text-align: center;
 }
 
@@ -143,7 +142,7 @@ header {
 }
 
 .service-item {
-  background-color: rgba(34, 34, 34, 0.9);
+  background-color: rgba(34, 34, 34, 0.7); /* Reducí la opacidad */
   padding: 1.5rem;
   border-radius: 8px;
   max-width: 320px;
@@ -169,7 +168,7 @@ header {
 /* Sección Nosotros */
 .about {
   padding: 2rem;
-  background-color: rgba(17, 17, 17, 0.85);
+  background-color: rgba(17, 17, 17, 0.5); /* Menos opaco */
   text-align: center;
 }
 
@@ -193,7 +192,7 @@ header {
 
 /* Chatbot */
 .chatbot-section {
-  background-color: rgba(24, 24, 24, 0.85);
+  background-color: rgba(24, 24, 24, 0.5);
   padding: 2rem;
   text-align: center;
 }
@@ -222,7 +221,7 @@ header {
 
 /* Footer */
 .footer {
-  background-color: rgba(21, 21, 21, 0.9);
+  background-color: rgba(21, 21, 21, 0.7);
   padding: 2rem;
   text-align: center;
 }
@@ -240,3 +239,4 @@ header {
 .footer-content a:hover {
   text-decoration: underline;
 }
+
