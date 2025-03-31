@@ -1,4 +1,4 @@
-const backendURL = "https://sibia-chatbot.onrender.com/chat";
+const backendURL = "https://sibia-chatbot.onrender.com";
 
 
 function toggleChat() {
