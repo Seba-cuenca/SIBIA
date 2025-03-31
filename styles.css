@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background: none; /* No se usa fondo en el body, el video lo cubre */
+  background: none; /* El video de fondo lo cubre */
   color: #FFFFFF;
 }
 
@@ -20,10 +20,10 @@ body {
   transition: opacity 1s ease;
 }
 
-/* Video 1 visible inicialmente; video 2 oculto */
 #video-background-1 {
   opacity: 1;
 }
+
 #video-background-2 {
   opacity: 0;
 }
@@ -235,4 +235,50 @@ header {
 
 .footer-content a:hover {
   text-decoration: underline;
+}
+
+/* Chatbot Boot Widget */
+#chatbot-boot {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  background: rgba(21, 21, 21, 0.8);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 200;
+  cursor: pointer;
+}
+
+#chatbot-boot.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#chatbot-boot .chatbot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#chatbot-boot .chatbot-header {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+#chatbot-boot .chatbot-icon img {
+  width: 40px;
+  height: auto;
+  animation: bounce 1s infinite;
+}
+
+/* Animación de rebote para el icono */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
