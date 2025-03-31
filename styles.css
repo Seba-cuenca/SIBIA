@@ -3,12 +3,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background: none; /* No se usa fondo en el body */
+  background: none; /* No se usa fondo en el body, el video lo cubre */
   color: #FFFFFF;
 }
 
-/* Video de fondo */
-#video-background {
+/* Videos de fondo */
+#video-background-1,
+#video-background-2 {
   position: fixed;
   top: 0;
   left: 0;
@@ -16,6 +17,29 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  transition: opacity 1s ease;
+}
+
+/* Video 1 visible inicialmente; video 2 oculto */
+#video-background-1 {
+  opacity: 1;
+}
+#video-background-2 {
+  opacity: 0;
+}
+
+/* Botón para transición de video */
+#transition-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #00AEEF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* Encabezado */
@@ -160,7 +184,6 @@ header {
   text-align: left;
 }
 
-/* Icono de servicio */
 .service-icon {
   text-align: center;
   margin-bottom: 1rem;
