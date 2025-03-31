@@ -181,40 +181,48 @@
       this.classList.toggle('expanded');
     });
     
-    // Enviar mensaje del chat y conectar con la API de OpenAI
-    document.getElementById('chat-form').addEventListener('submit', async function(e) {
+    // Función para obtener la respuesta predefinida según palabras clave
+    function getReply(message) {
+      const msgLower = message.toLowerCase();
+      if (msgLower.includes("hola")) {
+        return "¡Hola! ¿En qué puedo ayudarte?";
+      } else if (msgLower.includes("contacto")) {
+        return "Para contactar, puedes llamar al +54 9 11 5175-9683 o escribir a info@sibia.com";
+      } else if (msgLower.includes("correo")) {
+        return "Envíanos un correo a info@sibia.com y te responderemos a la brevedad.";
+      } else if (msgLower.includes("comunicación")) {
+        return "Estamos disponibles para comunicación vía teléfono o correo. ¡Contáctanos!";
+      } else {
+        return "Lo siento, no entendí tu mensaje. ¿Podrías reformular?";
+      }
+    }
+    
+    // Enviar mensaje del chat y obtener respuesta predefinida
+    document.getElementById('chat-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const input = document.getElementById('chat-input');
       const message = input.value;
       if (!message.trim()) return;
       
       const chatMessages = document.getElementById('chat-messages');
-      // Mensaje del usuario
+      
+      // Mostrar mensaje del usuario
       const userMsg = document.createElement('div');
       userMsg.className = 'chat-message user';
       userMsg.textContent = message;
       chatMessages.appendChild(userMsg);
+      
+      // Limpiar el campo de entrada
       input.value = "";
       
-      try {
-        const response = await fetch("https://sibia-chatbot.onrender.com/chat", {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: message })
-        });
-        const data = await response.json();
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-message bot';
-        botMsg.textContent = data.reply;
-        chatMessages.appendChild(botMsg);
-      } catch (err) {
-        console.error(err);
-        const errorMsg = document.createElement('div');
-        errorMsg.className = 'chat-message bot';
-        errorMsg.textContent = "Error al conectarse al servidor.";
-        chatMessages.appendChild(errorMsg);
-      }
+      // Obtener respuesta predefinida
+      const replyText = getReply(message);
+      const botMsg = document.createElement('div');
+      botMsg.className = 'chat-message bot';
+      botMsg.textContent = replyText;
+      chatMessages.appendChild(botMsg);
       
+      // Hacer scroll hacia el final del chat
       chatMessages.scrollTop = chatMessages.scrollHeight;
     });
   </script>
