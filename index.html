@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css?v=5.0"/>
+  <link rel="stylesheet" href="styles.css?v=6.0"/>
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
@@ -15,19 +15,16 @@
   </style>
 </head>
 <body>
-  <!-- Video de fondo 1 (inicial) -->
+  <!-- Video de fondo 1 (para "Inicio") -->
   <video autoplay muted loop id="video-background-1">
     <source src="174086-850404739_small.mp4" type="video/mp4">
     Tu navegador no soporta videos.
   </video>
-  <!-- Video de fondo 2 (para transición) -->
+  <!-- Video de fondo 2 (para otras secciones) -->
   <video autoplay muted loop id="video-background-2">
     <source src="172170-846731303_small.mp4" type="video/mp4">
     Tu navegador no soporta videos.
   </video>
-  
-  <!-- Botón para cambiar video -->
-  <button id="transition-btn">Cambiar Fondo</button>
   
   <!-- Encabezado / Barra de navegación -->
   <header>
@@ -125,22 +122,29 @@
     </div>
   </section>
   
-  <!-- Chatbot Boot: Widget que aparece en la esquina -->
+  <!-- Chatbot Boot Widget -->
   <div id="chatbot-boot">
-    <div class="chatbot-content">
-      <div class="chatbot-header">Hola, ¿en qué te puedo ayudar?</div>
-      <div class="chatbot-icon">
-        <img src="img/icono-de-robot.png" alt="Chatbot">
-      </div>
+    <div class="chatbot-header">Hola, ¿en qué te puedo ayudar?</div>
+    <div id="chat-panel">
+      <div id="chat-messages"></div>
+      <form id="chat-form">
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." autocomplete="off" required>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+    <div class="chatbot-icon">
+      <img src="img/icono-de-robot.png" alt="Chatbot">
     </div>
   </div>
   
   <!-- Scripts -->
   <script>
-    // Alternar entre secciones (solapas)
+    // Alternar secciones y cambiar video de fondo según la sección
     document.addEventListener('DOMContentLoaded', function() {
       const navLinks = document.querySelectorAll('.navbar a');
       const sections = document.querySelectorAll('section');
+      const video1 = document.getElementById('video-background-1');
+      const video2 = document.getElementById('video-background-2');
       
       navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -149,34 +153,70 @@
           navLinks.forEach(lnk => lnk.classList.remove('active'));
           const targetId = this.getAttribute('href').substring(1);
           const targetSection = document.getElementById(targetId);
-          if (targetSection) { targetSection.classList.add('active'); }
+          if (targetSection) { 
+            targetSection.classList.add('active'); 
+            // Si es "inicio", mostramos video1; de lo contrario, video2
+            if (targetId === "inicio") {
+              video1.style.opacity = "1";
+              video2.style.opacity = "0";
+            } else {
+              video1.style.opacity = "0";
+              video2.style.opacity = "1";
+            }
+          }
           this.classList.add('active');
         });
       });
     });
     
-    // Transición de videos
-    document.getElementById('transition-btn').addEventListener('click', function() {
-      let video1 = document.getElementById('video-background-1');
-      let video2 = document.getElementById('video-background-2');
-      if (video1.style.opacity === "1" || video1.style.opacity === "") {
-        video1.style.opacity = "0";
-        video2.style.opacity = "1";
-      } else {
-        video1.style.opacity = "1";
-        video2.style.opacity = "0";
-      }
-    });
-    
-    // Mostrar el chatbot boot después de 1 segundo con animación
+    // Mostrar el chatbot boot después de 1 segundo
     setTimeout(() => {
-      const chatbotBoot = document.getElementById('chatbot-boot');
-      chatbotBoot.classList.add('visible');
+      document.getElementById('chatbot-boot').classList.add('visible');
     }, 1000);
     
-    // (Opcional) Podés agregar aquí la lógica para abrir una interfaz de chat y conectar con la API.
+    // Toggle del chat panel al hacer click en el chatbot boot
+    document.getElementById('chatbot-boot').addEventListener('click', function(e) {
+      // Evitar que al hacer click en el panel interno se cierre
+      if(e.target.closest('#chat-panel')) return;
+      this.classList.toggle('expanded');
+    });
+    
+    // Enviar mensaje del chat y conectar con la API de OpenAI
+    document.getElementById('chat-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const input = document.getElementById('chat-input');
+      const message = input.value;
+      if (!message.trim()) return;
+      
+      const chatMessages = document.getElementById('chat-messages');
+      // Mensaje del usuario
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-message user';
+      userMsg.textContent = message;
+      chatMessages.appendChild(userMsg);
+      input.value = "";
+      
+      try {
+        const response = await fetch('/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: message })
+        });
+        const data = await response.json();
+        const botMsg = document.createElement('div');
+        botMsg.className = 'chat-message bot';
+        botMsg.textContent = data.reply;
+        chatMessages.appendChild(botMsg);
+      } catch (err) {
+        console.error(err);
+        const errorMsg = document.createElement('div');
+        errorMsg.className = 'chat-message bot';
+        errorMsg.textContent = "Error al conectarse al servidor.";
+        chatMessages.appendChild(errorMsg);
+      }
+      
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
   </script>
-  
-  <!-- Particles.js (si se usa, aquí se puede integrar, pero en este ejemplo usamos videos de fondo) -->
 </body>
 </html>
