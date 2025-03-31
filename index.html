@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css?v=3.0"/>
+  <link rel="stylesheet" href="styles.css?v=4.0"/>
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
@@ -15,16 +15,24 @@
   </style>
 </head>
 <body>
-  <!-- Video de fondo -->
-  <video autoplay muted loop id="video-background">
+  <!-- Video de fondo 1 (inicial) -->
+  <video autoplay muted loop id="video-background-1">
     <source src="174086-850404739_small.mp4" type="video/mp4">
     Tu navegador no soporta videos.
   </video>
-
+  <!-- Video de fondo 2 (para transición) -->
+  <video autoplay muted loop id="video-background-2">
+    <source src="172170-846731303_small.mp4" type="video/mp4">
+    Tu navegador no soporta videos.
+  </video>
+  
+  <!-- Botón para cambiar video -->
+  <button id="transition-btn">Cambiar Fondo</button>
+  
   <!-- Encabezado / Barra de navegación -->
   <header>
     <div class="logo-container">
-      <img src="img/logo-sibia.svg" alt="Logo de SIBIA" class="logo" />
+      <img src="img/logo-sibia.svg" alt="Logo de SIBIA" class="logo">
       <h1 class="brand-name">SIBIA</h1>
     </div>
     <nav class="navbar">
@@ -45,10 +53,10 @@
       <div class="hero-logos">
         <span>Empresas con las que trabajamos:</span>
         <div class="company-logos">
-          <img src="img/logo-ypf.png" alt="YPF" />
-          <img src="img/logo-arcor.png" alt="Arcor" />
-          <img src="img/logo-mercadolibre.png" alt="Mercado Libre" />
-          <img src="img/logo-globant.png" alt="Globant" />
+          <img src="img/logo-ypf.png" alt="YPF">
+          <img src="img/logo-arcor.png" alt="Arcor">
+          <img src="img/logo-mercadolibre.png" alt="Mercado Libre">
+          <img src="img/logo-globant.png" alt="Globant">
         </div>
       </div>
       <div class="hero-contact">
@@ -57,7 +65,7 @@
       </div>
     </div>
     <div class="hero-image">
-      <img src="img/persona.png" alt="Persona representativa"/>
+      <img src="img/persona.png" alt="Persona representativa">
     </div>
   </section>
   
@@ -67,9 +75,8 @@
     <p>Ofrecemos soluciones de automatización inteligente para potenciar tu empresa.</p>
     <div class="service-columns">
       <div class="service-item">
-        <!-- Icono para IA y Automatización Digital -->
         <div class="service-icon">
-          <img src="img/icono-de-robot.png" alt="Icono IA" />
+          <img src="img/icono-de-robot.png" alt="Icono IA">
         </div>
         <h3>Inteligencia Artificial <br> y Automatización Digital</h3>
         <ul>
@@ -81,9 +88,8 @@
         </ul>
       </div>
       <div class="service-item">
-        <!-- Icono para Automatización Industrial y Tablerismo -->
         <div class="service-icon">
-          <img src="img/icono-de-robot.png" alt="Icono Industrial" />
+          <img src="img/icono-de-robot.png" alt="Icono Industrial">
         </div>
         <h3>Automatización Industrial <br> y Tablerismo</h3>
         <ul>
@@ -101,12 +107,10 @@
   <section id="nosotros" class="about">
     <h2>Sobre Nosotros</h2>
     <p>
-      Somos una empresa dedicada a la implementación de tecnologías de inteligencia artificial 
-      y automatización industrial. Ayudamos a nuestros clientes a mejorar la eficiencia y 
-      competitividad de sus procesos, integrando soluciones de vanguardia.
+      Somos una empresa dedicada a la implementación de tecnologías de inteligencia artificial y automatización industrial. Ayudamos a nuestros clientes a mejorar la eficiencia y competitividad de sus procesos, integrando soluciones de vanguardia.
     </p>
     <div class="about-image">
-      <img src="img/equipo-trabajo.png" alt="Equipo de trabajo" />
+      <img src="img/equipo-trabajo.png" alt="Equipo de trabajo">
     </div>
   </section>
   
@@ -138,6 +142,21 @@
           this.classList.add('active');
         });
       });
+    });
+  </script>
+  
+  <!-- Script para transición de video -->
+  <script>
+    document.getElementById('transition-btn').addEventListener('click', function() {
+      let video1 = document.getElementById('video-background-1');
+      let video2 = document.getElementById('video-background-2');
+      if (video1.style.opacity === "1" || video1.style.opacity === "") {
+        video1.style.opacity = "0";
+        video2.style.opacity = "1";
+      } else {
+        video1.style.opacity = "1";
+        video2.style.opacity = "0";
+      }
     });
   </script>
 </body>
