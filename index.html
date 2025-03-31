@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIBIA - Automatización Inteligente</title>
-  <link rel="stylesheet" href="styles.css?v=4.0"/>
+  <link rel="stylesheet" href="styles.css?v=5.0"/>
   <!-- Fuentes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
@@ -125,8 +125,19 @@
     </div>
   </section>
   
-  <!-- Script para alternar entre secciones -->
+  <!-- Chatbot Boot: Widget que aparece en la esquina -->
+  <div id="chatbot-boot">
+    <div class="chatbot-content">
+      <div class="chatbot-header">Hola, ¿en qué te puedo ayudar?</div>
+      <div class="chatbot-icon">
+        <img src="img/icono-de-robot.png" alt="Chatbot">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
   <script>
+    // Alternar entre secciones (solapas)
     document.addEventListener('DOMContentLoaded', function() {
       const navLinks = document.querySelectorAll('.navbar a');
       const sections = document.querySelectorAll('section');
@@ -143,10 +154,8 @@
         });
       });
     });
-  </script>
-  
-  <!-- Script para transición de video -->
-  <script>
+    
+    // Transición de videos
     document.getElementById('transition-btn').addEventListener('click', function() {
       let video1 = document.getElementById('video-background-1');
       let video2 = document.getElementById('video-background-2');
@@ -158,6 +167,16 @@
         video2.style.opacity = "0";
       }
     });
+    
+    // Mostrar el chatbot boot después de 1 segundo con animación
+    setTimeout(() => {
+      const chatbotBoot = document.getElementById('chatbot-boot');
+      chatbotBoot.classList.add('visible');
+    }, 1000);
+    
+    // (Opcional) Podés agregar aquí la lógica para abrir una interfaz de chat y conectar con la API.
   </script>
+  
+  <!-- Particles.js (si se usa, aquí se puede integrar, pero en este ejemplo usamos videos de fondo) -->
 </body>
 </html>
