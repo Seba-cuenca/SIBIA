@@ -52,7 +52,7 @@
         <div class="company-logos">
           <img src="img/logo-ypf.png" alt="YPF">
           <img src="img/logo-aca.png" alt="Aca">
-          <img src="img/logo-beraldi.png" alt= "Beraldi">
+          <img src="img/logo-beraldi.png" alt="Beraldi">
           <img src="img/logo-globant.png" alt="Globant">
         </div>
       </div>
@@ -61,8 +61,12 @@
         <p><a href="mailto:info@sibia.com">info@sibia.com</a></p>
       </div>
     </div>
-    <div class="hero-image">
-      <img src="img/persona.png" alt="Persona representativa">
+    <!-- Video central en lugar de la imagen de la persona -->
+    <div class="hero-video">
+      <video autoplay muted loop playsinline>
+        <source src="8348725-uhd_2160_3840_25fps.mp4" type="video/mp4">
+        Tu navegador no soporta videos.
+      </video>
     </div>
   </section>
   
@@ -111,11 +115,16 @@
     </div>
   </section>
   
-  <!-- Sección Contacto / Footer -->
+  <!-- Sección Contacto -->
   <section id="contacto" class="footer">
     <div class="footer-content">
       <h3>Contacto</h3>
-      <p>Para más información o cotizaciones, contáctanos:</p>
+      <p>Para más información o cotizaciones, contáctanos escribiendo tu consulta y te responderemos al instante vía WhatsApp.</p>
+      <!-- Formulario para enviar consulta a WhatsApp (integración con Twilio en el backend) -->
+      <form id="whatsapp-form">
+        <textarea id="whatsapp-message" placeholder="Escribe tu consulta..." required></textarea>
+        <button type="submit">Enviar por WhatsApp</button>
+      </form>
       <p><strong>Tel:</strong> +54 9 11 5175 9683</p>
       <p><strong>Email:</strong> <a href="mailto:info@sibia.com">info@sibia.com</a></p>
       <p>SIBIA © 2025 - Todos los derechos reservados</p>
@@ -181,7 +190,7 @@
       this.classList.toggle('expanded');
     });
     
-    // Función para obtener la respuesta predefinida según palabras clave
+    // Función para obtener la respuesta predefinida según palabras clave en el chatbot
     function getReply(message) {
       const msgLower = message.toLowerCase();
       if (msgLower.includes("hola")) {
@@ -224,6 +233,30 @@
       
       // Hacer scroll hacia el final del chat
       chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
+    
+    // Manejar el envío del formulario de WhatsApp
+    document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const message = document.getElementById('whatsapp-message').value;
+      if (!message.trim()) return;
+      
+      // Aquí se debe integrar la lógica para enviar el mensaje a través de Twilio.
+      // Por ejemplo, enviar una petición POST a un endpoint que gestione la integración.
+      fetch('/send-whatsapp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: message })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Mensaje enviado. Te responderemos al instante vía WhatsApp.');
+        document.getElementById('whatsapp-message').value = "";
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error. Intenta nuevamente.');
+      });
     });
   </script>
 </body>
