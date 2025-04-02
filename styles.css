@@ -142,14 +142,14 @@ header {
 
 /* Video central en la sección Inicio */
 .hero-video {
-  width: 100%;
+  width: 20%;
   max-width: 200px; /* Limita el ancho del video */
   margin: 0 auto;   /* Centra el video horizontalmente */
   overflow: hidden;
 }
 
 .hero-video video {
-  width: 100%;
+  width: 20%;
   height: auto;
   display: block;
   border-radius: 8px;
